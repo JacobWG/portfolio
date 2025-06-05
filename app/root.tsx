@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -6,9 +7,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
+import PermanentDrawerLeft from '~/components/Sidebar'
 import type { Route } from "./+types/root";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
 import "./app.css";
+import Box from "@mui/material/Box";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,17 +27,47 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+const defTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+    typography: {
+        h1: {
+            fontSize: "3.75rem",
+            lineHeight: 1.2,
+            letterSpacing: "-0.00833em"
+        },
+        h2: {
+            fontSize: "3rem",
+            lineHeight: 1.167,
+            letterSpacing: "0em"
+        },
+        h3: {
+            fontSize: "2.125rem",
+            lineHeight: 1.235,
+            letterSpacing: "-0.00735em"
+        }
+    }
+});
+
+export function Layout() {
   return (
     <html lang="en">
       <head>
+        <title>Jacob Gilbert's Portfolio</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
       <body>
-        {children}
+        <ThemeProvider theme={defTheme}>
+          <CssBaseline />
+          <Box sx={{display:'flex'}}>
+              <PermanentDrawerLeft/>
+              <Outlet/>
+          </Box>
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -42,7 +76,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+      <Layout />
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
