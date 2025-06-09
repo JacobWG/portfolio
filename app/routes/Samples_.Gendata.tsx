@@ -64,12 +64,12 @@ export default function Gendata() {
             <Typography>From here, the meaning of each field can now be derived.</Typography>
             <Table sx={{width: "auto"}} size="small">
                 <TableHead>
-                <TableRow>
-                    <TableCell>Data Field</TableCell>
-                    <TableCell>Value</TableCell>
-                    <TableCell>Definition</TableCell>
-                    <TableCell>Notes</TableCell>
-                </TableRow>
+                    <TableRow>
+                        <TableCell>Data Field</TableCell>
+                        <TableCell>Value</TableCell>
+                        <TableCell>Definition</TableCell>
+                        <TableCell>Notes</TableCell>
+                    </TableRow>
                 </TableHead>
                 <TableBody>
                 <TableRow>

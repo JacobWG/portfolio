@@ -11,8 +11,11 @@ import PermanentDrawerLeft from '~/components/Sidebar'
 import type { Route } from "./+types/root";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from "@mui/material/CssBaseline";
+import Stack from '@mui/material/Stack';
 import "./app.css";
 import Box from "@mui/material/Box";
+import Paper from '@mui/material/Paper';
+import BCToolbar from "~/components/BCToolbar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -65,7 +68,14 @@ export function Layout() {
           <CssBaseline />
           <Box sx={{display:'flex'}}>
               <PermanentDrawerLeft/>
-              <Outlet/>
+              <Stack sx={{flexDirection:'column'}}>
+                  <BCToolbar />
+                  <Paper sx={{p: 2, width: '100%'}} elevation={0}>
+                      <Box id={'mainbody'}>
+                          <Outlet />
+                      </Box>
+                  </Paper>
+              </Stack>
           </Box>
         </ThemeProvider>
         <ScrollRestoration />
