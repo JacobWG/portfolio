@@ -7,6 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import {Link} from 'react-router';
 import {SamplesRoutes} from "~/components/SamplesData";
+import Divider from '@mui/material/Divider';
 
 export default function Samples() {
     return (
@@ -19,10 +20,23 @@ export default function Samples() {
             </Typography>
             <Box sx={{display: 'flex'}}>
                 {SamplesRoutes.map((item, index) => (
-                    <Card key={index} sx={{margin: '1rem', minWidth: '10rem', maxWidth: '20%', display: 'flex', flexFlow: 'column', justifyContent: 'space-between'}}>
+                    <Card key={index}
+                          elevation={2}
+                          sx={{
+                              margin: '1rem',
+                              minWidth: '10rem',
+                              maxWidth: '20%',
+                              display: 'flex',
+                              flexFlow: 'column',
+                              justifyContent: 'space-between'
+                    }}>
                         <CardContent>
-                            <Typography variant="h5" sx={{paddingBottom: "0.5rem"}}>{item.title}</Typography>
-                            <Typography>{item.text}</Typography>
+                            <Box sx={{display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
+                                <Typography variant="h5">{item.title}</Typography>
+                                <Typography variant="h6">{item.topic}</Typography>
+                            </Box>
+                            <Divider />
+                            <Typography sx={{paddingTop: "1rem"}}>{item.text}</Typography>
                         </CardContent>
                         <CardActions>
                             <Button component={Link} to={item.path}>View Article</Button>
