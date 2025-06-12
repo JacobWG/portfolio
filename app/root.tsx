@@ -16,7 +16,6 @@ import "./app.css";
 import Box from "@mui/material/Box";
 import Paper from '@mui/material/Paper';
 import BCToolbar from "~/components/BCToolbar";
-import {drawerWidth} from "~/components/Sidebar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
