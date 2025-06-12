@@ -9,8 +9,9 @@ import {
 } from 'react-router'
 import {SidebarRoutes} from "~/components/SidebarData";
 import {SamplesRoutes} from "~/components/SamplesData";
+import {ProjectsRoutes} from "~/components/ProjectsData";
 
-const allRoutes = [...SidebarRoutes, ...SamplesRoutes];
+const allRoutes = [...SidebarRoutes, ...SamplesRoutes, ...ProjectsRoutes];
 const pathTitles = new Map(allRoutes.map(route => [route.path, route.title]));
 
 interface LinkRouterProps extends LinkProps {
@@ -26,7 +27,7 @@ export default function BCToolbar() {
     const location =  useLocation();
     const pathNames = location.pathname.split("/").filter((x) => x);
     return (
-        <AppBar id={'header'} position="sticky" sx={{width: '100vw'}}>
+        <AppBar id={'header'} position="sticky" sx={{width: 'calc(100vw - 175'}}>
             <Toolbar>
                 <Breadcrumbs sx={{textTransform: 'capitalize'}}>
                     <LinkRouter underline="hover" color="inherit" to="/">
@@ -36,7 +37,6 @@ export default function BCToolbar() {
                         const last = index === pathNames.length - 1;
                         const to = `/${pathNames.slice(0, index + 1).join('/')}`;
                         const pathTitle = pathTitles.get(to);
-                        console.log(pathTitle);
 
                         return last ? (
                             <Typography key={index} sx={{ color: 'text.primary' }}>

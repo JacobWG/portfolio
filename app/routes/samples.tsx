@@ -11,7 +11,7 @@ import Divider from '@mui/material/Divider';
 
 export default function Samples() {
     return (
-        <Box id='samples' sx={{display: 'block', minHeight: '50vh'}}>
+        <Box id='samples' sx={{display: 'block', minHeight: '50vh', p: 2}}>
             <Typography variant="h1" sx={{ marginBottom: 2 }}>
                 Samples
             </Typography>

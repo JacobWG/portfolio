@@ -11,7 +11,7 @@ import { Link } from 'react-router';
 import {SidebarRoutes} from "~/components/SidebarData";
 import {SidebarExternalLinks} from "~/components/SidebarData";
 
-const drawerWidth = 200;
+export const drawerWidth = 175;
 
 export default function PermanentDrawerLeft() {
     return (
@@ -28,11 +28,11 @@ export default function PermanentDrawerLeft() {
             anchor="left"
         >
             <Toolbar />
-            <List className={"sidebarlist"}>
+            <List className={"sidebarlist"} sx={{pl: 2, pt:0}}>
                 {SidebarRoutes.map((item, index) => (
                     <ListItem key={index} className={item.cName} disablePadding>
                         <ListItemButton component={Link} to={item.path}>
-                            <ListItemIcon>
+                            <ListItemIcon sx={{minWidth: '40px'}}>
                                 {item.icon}
                             </ListItemIcon>
                             <ListItemText primary={item.title} />
@@ -41,11 +41,11 @@ export default function PermanentDrawerLeft() {
                 ))}
             </List>
             <Divider sx={{marginBottom: '3rem', marginTop: '3rem'}} />
-            <List className={"sidebarlist"}>
+            <List className={"sidebarlist"} sx={{pl: 2}}>
                 {SidebarExternalLinks.map((item, index) => (
                     <ListItem key={index} className={item.cName} disablePadding>
                         <ListItemButton component={Link} to={item.path} target="_blank">
-                            <ListItemIcon>
+                            <ListItemIcon sx={{minWidth: '40px'}}>
                                 {item.icon}
                             </ListItemIcon>
                             <ListItemText primary={item.title}/>

@@ -16,6 +16,7 @@ import "./app.css";
 import Box from "@mui/material/Box";
 import Paper from '@mui/material/Paper';
 import BCToolbar from "~/components/BCToolbar";
+import {drawerWidth} from "~/components/Sidebar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -36,19 +37,19 @@ const defTheme = createTheme({
     },
     typography: {
         h1: {
-            fontSize: "3.75rem",
-            lineHeight: 1.2,
-            letterSpacing: "-0.00833em"
-        },
-        h2: {
             fontSize: "3rem",
             lineHeight: 1.167,
             letterSpacing: "0em"
         },
-        h3: {
+        h2: {
             fontSize: "2.125rem",
             lineHeight: 1.235,
-            letterSpacing: "-0.00735em"
+            letterSpacing: "0.00735em",
+        },
+        h3: {
+            fontSize: "1.5rem",
+            lineHeight: 1.334,
+            letterSpacing: "0em"
         }
     }
 });
@@ -70,7 +71,7 @@ export function Layout() {
               <PermanentDrawerLeft/>
               <Stack sx={{flexDirection:'column'}}>
                   <BCToolbar />
-                  <Paper sx={{width: '100%'}} elevation={0}>
+                  <Paper sx={{width: 'calc(100vw - 175)'}} elevation={0}>
                       <Box id={'mainbody'}>
                           <Outlet />
                       </Box>
