@@ -12,6 +12,7 @@ export default function ComicGit() {
             <Button variant="contained" href={'https://comic-git.gitbook.io/documentation'} target={'_blank'} sx={{mt:2}}>Link to Docs</Button>
             <Typography variant={'h2'}>Summary</Typography>
             <Typography>comic_git is an open source project started by Ryan Vilbrandt to provide a lightweight, free webcomic site hosted on GitHub Pages.</Typography>
+            <Typography>This project involved editing the existing documentation and updating to include new features in preparation for the 1.0 launch.</Typography>
             <Typography variant={'h2'}>Timeline</Typography>
             <List>
                 <ListItem>
@@ -22,12 +23,12 @@ export default function ComicGit() {
                     from GitHub's built-in wiki to Gitbook to provide better collaboration and version control.
                 </ListItem>
                 <ListItem>
-                    2025: In preparation for the 1.0 launch, Ryan contracted my services to update the documentation
-                    with the new features implemented in 1.0 and edit the overall manual for clarity and ease of access.
+                    2025: Ryan contracted my services to update the documentation for the 1.0 launch. The details on
+                    this page cover this phase of the project and resulting deliverable.
                 </ListItem>
             </List>
             <Typography variant={'h2'}>Duration of project</Typography>
-            <Typography>Total time for the project spanned 16 hours of work over two weeks.</Typography>
+            <Typography>Total time for the 1.0 project spanned 16 hours of work over two weeks.</Typography>
             <Typography variant={'h2'}>Audience</Typography>
             <Typography>
                 comic_git and its documentation are aimed at artists who may not have the necessary knowledge to design or host their own website.
