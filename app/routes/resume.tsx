@@ -5,10 +5,10 @@ import Link from '@mui/material/Link';
 
 export default function Resume() {
     return (
-        <Box id="title" sx={{
+        <Box id="resume" sx={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-end',
+            justifyContent: 'flex-start',
             alignItems: 'center',
             minHeight: '35vh',
             width: 'calc(100vw - 200px)'
