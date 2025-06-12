@@ -5,7 +5,31 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-#mainbody {
+body {
+  overflow-x: hidden;
+}
+
+#title {
+  background-image: url('/public/assets/rainier.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+}
+
+#title h1 {
+  text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+}
+
+#frontpage p {
+  padding-bottom: 0.5rem;
+}
+
+#frontpage ul {
+  padding-left: 20px;
+  margin: 2px 0 10px 10px;
+}
+
+.article {
   margin: 1rem;
 }
 
@@ -31,28 +55,33 @@
   margin: 20px 0 20px 20px;
 }
 
-[dir="rtl"] .article ul, [dir="rtl"] .article ol {
+[dir="rtl"] .article ul, [dir="rtl"] .article ol, [dir="rtl"] #frontpage ul {
   padding-right: 20px;
   padding-left: 0;
   margin-left: 0;
   margin-right: 20px;
 }
 
-.article ul > ul, .article ol > ol, .article ol > ul, .article ul > ol, .article li > ul, .article li > ol {
+.article ul > ul, .article ol > ol, .article ol > ul, .article ul > ol, .article li > ul, .article li > ol, #frontpage ul > ul, #frontpage ol > ol, #frontpage ol > ul, #frontpage ul > ol, #frontpage li > ul, #frontpage li > ol {
   margin: 0;
 }
 
-.article ul {
+.article ol {
+  list-style-position: outside;
+  list-style-type: decimal;
+}
+
+.article ul, #frontpage ul {
   list-style-type: disc;
 }
-.article ul ul {
+.article ul ul, #frontpage ul ul {
   list-style-type: square;
 }
 .article ul ul ul {
   list-style-type: circle;
 }
 
-.article li {
+.article li, #frontpage li {
   display: list-item;
   padding: 0.1rem 0;
 }

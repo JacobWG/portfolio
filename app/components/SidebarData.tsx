@@ -5,6 +5,7 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import ArticleIcon from '@mui/icons-material/Article';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 
 export const SidebarRoutes = [
     {
@@ -17,6 +18,12 @@ export const SidebarRoutes = [
         title: "Resume",
         path: "/resume",
         icon: <ContactPageIcon />,
+        cName: "nav-text",
+    },
+    {
+        title: "Projects",
+        path: "/projects",
+        icon: <AccountTreeIcon />,
         cName: "nav-text",
     },
     {

@@ -40,7 +40,7 @@ export default function PermanentDrawerLeft() {
                     </ListItem>
                 ))}
             </List>
-            <Divider />
+            <Divider sx={{marginBottom: '3rem', marginTop: '3rem'}} />
             <List className={"sidebarlist"}>
                 {SidebarExternalLinks.map((item, index) => (
                     <ListItem key={index} className={item.cName} disablePadding>

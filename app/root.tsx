@@ -70,7 +70,7 @@ export function Layout() {
               <PermanentDrawerLeft/>
               <Stack sx={{flexDirection:'column'}}>
                   <BCToolbar />
-                  <Paper sx={{p: 2, width: '100%'}} elevation={0}>
+                  <Paper sx={{width: '100%'}} elevation={0}>
                       <Box id={'mainbody'}>
                           <Outlet />
                       </Box>
