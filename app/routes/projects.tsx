@@ -18,21 +18,20 @@ export default function Projects() {
             <Typography sx={{ marginBottom: 2 }}>
                 The projects listed here were completed entirely by or led by me. Work is shown where possible, however several of these projects were internal to Zonar.
             </Typography>
-            <Box sx={{display: 'flex'}}>
+            <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
                 {ProjectsRoutes.map((item, index) => (
                     <Card key={index}
                           elevation={2}
                           sx={{
                               margin: '1rem',
-                              minWidth: '10rem',
-                              maxWidth: '25%',
                               display: 'flex',
-                              flexBasis: '100%',
+                              width: { xs: '100%', md: '45%', lg: '30%' },
+                              flex: 'initial',
                               flexFlow: 'column',
                               justifyContent: 'space-between'
                           }}>
                         <CardContent>
-                            <Box sx={{display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
+                            <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
                                 <Typography variant="h5">{item.title}</Typography>
                                 <Typography variant="h6">{item.tools}</Typography>
                             </Box>

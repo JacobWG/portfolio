@@ -10,13 +10,12 @@ export default function Index() {
         <>
             <Box id="title" sx={{
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
+                justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '35vh',
-                width: 'calc(100vw - 200px)'
+                width: '100%'
             }}>
-                <Typography variant="h1" sx={{ fontSize: '8.75rem', marginBottom: 10 }}>
+                <Typography variant="h1" sx={{ fontSize: { xs: '3rem', sm: '4rem', md: '5rem', lg: '8rem' }}}>
                     Jacob Gilbert
                 </Typography>
             </Box>

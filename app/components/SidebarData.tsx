@@ -15,12 +15,6 @@ export const SidebarRoutes = [
         cName: "nav-text",
     },
     {
-        title: "Resume",
-        path: "/resume",
-        icon: <ContactPageIcon />,
-        cName: "nav-text",
-    },
-    {
         title: "Projects",
         path: "/projects",
         icon: <AccountTreeIcon />,
@@ -36,10 +30,16 @@ export const SidebarRoutes = [
 
 export const SidebarExternalLinks = [
     {
+        title: "Resume",
+        path: "https://docs.google.com/document/d/1IFNZhp3LLeMqzpSWzHQPz3I3JLmUYja6QJceGMEqmww/edit?usp=sharing",
+        icon: <ContactPageIcon />,
+        cName: "nav-text top-link",
+    },
+    {
         title: "LinkedIn",
         path: "https://www.linkedin.com/in/jacob-w-gilbert/",
         icon: <LinkedInIcon />,
-        cName: "nav-text top-link",
+        cName: "nav-text",
     },
     {
         title: "GitHub",

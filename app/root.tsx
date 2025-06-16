@@ -7,15 +7,19 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import PermanentDrawerLeft from '~/components/Sidebar'
 import type { Route } from "./+types/root";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from "@mui/material/CssBaseline";
-import Stack from '@mui/material/Stack';
 import "./app.css";
 import Box from "@mui/material/Box";
 import Paper from '@mui/material/Paper';
 import BCToolbar from "~/components/BCToolbar";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import ResponsiveSidebar from "~/components/ResponsiveSidebar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -54,6 +58,24 @@ const defTheme = createTheme({
 });
 
 export function Layout() {
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [isClosing, setIsClosing] = React.useState(false);
+    const drawerWidth = 175;
+
+    const handleDrawerClose = () => {
+        setIsClosing(true);
+        setMobileOpen(false);
+    };
+
+    const handleDrawerTransitionEnd = () => {
+        setIsClosing(false);
+    };
+
+    const handleDrawerToggle = () => {
+        if (!isClosing) {
+            setMobileOpen(!mobileOpen);
+        }
+    };
   return (
     <html lang="en">
       <head>
@@ -67,15 +89,64 @@ export function Layout() {
         <ThemeProvider theme={defTheme}>
           <CssBaseline />
           <Box sx={{display:'flex'}}>
-              <PermanentDrawerLeft/>
-              <Stack sx={{flexDirection:'column'}}>
-                  <BCToolbar />
-                  <Paper sx={{width: 'calc(100vw - 175)'}} elevation={0}>
-                      <Box id={'mainbody'}>
-                          <Outlet />
-                      </Box>
+              <AppBar
+                  id={'header'}
+                  position="fixed"
+                  sx={{
+                      width: { sm: `calc(100% - ${drawerWidth}px)` },
+                      ml: { sm: `${drawerWidth}px` },
+                  }}
+              >
+                  <Toolbar>
+                      <IconButton
+                          color="inherit"
+                          aria-label="open drawer"
+                          edge="start"
+                          onClick={handleDrawerToggle}
+                          sx={{ mr: 2, display: { sm: 'none' } }}
+                      >
+                          <MenuIcon />
+                      </IconButton>
+                      <BCToolbar />
+                  </Toolbar>
+              </AppBar>
+              <Box
+                  component="nav"
+                  sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
+                  <Drawer
+                      variant="temporary"
+                      open={mobileOpen}
+                      onTransitionEnd={handleDrawerTransitionEnd}
+                      onClose={handleDrawerClose}
+                      sx={{
+                          display: { xs: 'block', sm: 'none' },
+                          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                      }}
+                      slotProps={{
+                          root: {
+                              keepMounted: true, // Better open performance on mobile.
+                          },
+                      }}
+                  >
+                      <ResponsiveSidebar />
+                  </Drawer>
+                  <Drawer
+                      variant="permanent"
+                      sx={{
+                          display: { xs: 'none', sm: 'block' },
+                          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                      }}
+                      open
+                  >
+                      <ResponsiveSidebar />
+                  </Drawer>
+              </Box>
+              <Box id={'mainbody'} sx={{width: {xs: '100%', sm: `calc(100% - ${drawerWidth}px)`}}}>
+                  <Toolbar/>
+                  <Paper elevation={0}>
+                      <Outlet />
                   </Paper>
-              </Stack>
+              </Box>
           </Box>
         </ThemeProvider>
         <ScrollRestoration />

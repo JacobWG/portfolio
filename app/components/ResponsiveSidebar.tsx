@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -11,22 +10,9 @@ import { Link } from 'react-router';
 import {SidebarRoutes} from "~/components/SidebarData";
 import {SidebarExternalLinks} from "~/components/SidebarData";
 
-export const drawerWidth = 175;
-
-export default function PermanentDrawerLeft() {
+export default function ResponsiveSidebar() {
     return (
-        <Drawer
-            sx={{
-                width: drawerWidth,
-                flexShrink: 0,
-                '& .MuiDrawer-paper': {
-                    width: drawerWidth,
-                    boxSizing: 'border-box',
-                },
-            }}
-            variant="permanent"
-            anchor="left"
-        >
+        <div>
             <Toolbar />
             <List className={"sidebarlist"} sx={{pl: 2, pt:0}}>
                 {SidebarRoutes.map((item, index) => (
@@ -53,6 +39,6 @@ export default function PermanentDrawerLeft() {
                     </ListItem>
                 ))}
             </List>
-        </Drawer>
+        </div>
     )
 }

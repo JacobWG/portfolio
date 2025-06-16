@@ -24,9 +24,9 @@ export default function Samples() {
                           elevation={2}
                           sx={{
                               margin: '1rem',
-                              minWidth: '10rem',
-                              maxWidth: '20%',
                               display: 'flex',
+                              width: { xs: '100%', md: '45%', lg: '30%' },
+                              flex: 'initial',
                               flexFlow: 'column',
                               justifyContent: 'space-between'
                     }}>

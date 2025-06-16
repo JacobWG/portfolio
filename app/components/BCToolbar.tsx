@@ -1,6 +1,4 @@
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Toolbar from "@mui/material/Toolbar";
-import AppBar from "@mui/material/AppBar";
 import Link, {type LinkProps } from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import {
@@ -27,29 +25,25 @@ export default function BCToolbar() {
     const location =  useLocation();
     const pathNames = location.pathname.split("/").filter((x) => x);
     return (
-        <AppBar id={'header'} position="sticky" sx={{width: 'calc(100vw - 175'}}>
-            <Toolbar>
-                <Breadcrumbs sx={{textTransform: 'capitalize'}}>
-                    <LinkRouter underline="hover" color="inherit" to="/">
-                        Home
-                    </LinkRouter>
-                    {pathNames.map((value, index) => {
-                        const last = index === pathNames.length - 1;
-                        const to = `/${pathNames.slice(0, index + 1).join('/')}`;
-                        const pathTitle = pathTitles.get(to);
+        <Breadcrumbs sx={{textTransform: 'capitalize'}}>
+            <LinkRouter underline="hover" color="inherit" to="/">
+                Home
+            </LinkRouter>
+            {pathNames.map((value, index) => {
+                const last = index === pathNames.length - 1;
+                const to = `/${pathNames.slice(0, index + 1).join('/')}`;
+                const pathTitle = pathTitles.get(to);
 
-                        return last ? (
-                            <Typography key={index} sx={{ color: 'text.primary' }}>
-                                {pathTitle}
+                return last ? (
+                    <Typography key={index} sx={{ color: 'text.primary' }}>
+                        {pathTitle}
                             </Typography>
-                        ) : (
-                            <LinkRouter underline="hover" color="inherit" to={to} key={index}>
-                                {pathTitle}
-                            </LinkRouter>
-                        );
-                    })}
-                </Breadcrumbs>
-            </Toolbar>
-        </AppBar>
+                ) : (
+                    <LinkRouter underline="hover" color="inherit" to={to} key={index}>
+                        {pathTitle}
+                    </LinkRouter>
+                );
+            })}
+        </Breadcrumbs>
     );
 }
