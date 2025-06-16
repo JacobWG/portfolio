@@ -2,7 +2,7 @@ import * as React from "react";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import {ProjectsRoutes} from "~/components/ProjectsData";
-import Card from "@mui/material/Card";
+import ItemCard from "~/components/ItemCard";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import CardActions from "@mui/material/CardActions";
@@ -20,16 +20,7 @@ export default function Projects() {
             </Typography>
             <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
                 {ProjectsRoutes.map((item, index) => (
-                    <Card key={index}
-                          elevation={2}
-                          sx={{
-                              margin: '1rem',
-                              display: 'flex',
-                              width: { xs: '100%', md: '45%', lg: '30%' },
-                              flex: 'initial',
-                              flexFlow: 'column',
-                              justifyContent: 'space-between'
-                          }}>
+                    <ItemCard key={index}>
                         <CardContent>
                             <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
                                 <Typography variant="h5">{item.title}</Typography>
@@ -41,7 +32,7 @@ export default function Projects() {
                         <CardActions>
                             <Button component={Link} to={item.path}>View Summary</Button>
                         </CardActions>
-                    </Card>
+                    </ItemCard>
                 ))}
             </Box>
         </Box>
