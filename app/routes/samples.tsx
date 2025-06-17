@@ -24,7 +24,7 @@ export default function Samples() {
                         <CardContent>
                             <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
                                 <Typography variant="h5">{item.title}</Typography>
-                                <Typography variant="h6">{item.topic}</Typography>
+                                <Typography variant="h6" sx={{marginLeft: 'auto'}}>{item.topic}</Typography>
                             </Box>
                             <Divider />
                             <Typography sx={{paddingTop: "1rem"}}>{item.text}</Typography>

@@ -8,7 +8,8 @@ export default function ItemCard({ key, children }: { key: number, children: Rea
               sx={{
                   margin: '1rem',
                   display: 'flex',
-                  width: { xs: '100%', md: '45%', lg: '30%' },
+                  width: { xs: '100%', md: '45%', lg: '30%', xl: '23%' },
+                  minWidth: '340px',
                   flex: 'initial',
                   flexFlow: 'column',
                   justifyContent: 'space-between'

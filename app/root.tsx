@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 import type { Route } from "./+types/root";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import CssBaseline from "@mui/material/CssBaseline";
 import "./app.css";
 import Box from "@mui/material/Box";
@@ -34,7 +34,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-const defTheme = createTheme({
+let defTheme = createTheme({
     palette: {
         mode: 'dark',
     },
@@ -56,6 +56,8 @@ const defTheme = createTheme({
         }
     }
 });
+
+defTheme = responsiveFontSizes(defTheme);
 
 export function Layout() {
     const [mobileOpen, setMobileOpen] = React.useState(false);

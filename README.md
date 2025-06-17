@@ -1,4 +1,4 @@
-# Welcome to Jacob Gilbert's!
+# Welcome to Jacob Gilbert's! Portfolio
 
 This is a portfolio site to host samples of my work and descriptions of past projects.
 

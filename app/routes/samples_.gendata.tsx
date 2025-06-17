@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Divider from "@mui/material/Divider";
+import Alert from "@mui/material/Alert";
 
 export default function Gendata() {
     return (
@@ -256,7 +257,7 @@ export default function Gendata() {
                     <Typography className="note">For a more in-depth explanation of this data interpretation, see <Link href="https://support.zonarsystems.net/hc/en-us/articles/360021060971-Bitmask-Explained">Bitmask Explained</Link>.</Typography>
                 </ListItem>
             </List>
-            <Typography className="note">Not all information will be required to be reviewed or known for all troubleshooting efforts. This interpretation sample is to aid in knowing how to find needed information.</Typography>
+            <Alert severity={'info'}>Not all information will be required to be reviewed or known for all troubleshooting efforts. This interpretation sample is to aid in knowing how to find needed information.</Alert>
         </Box>
     )
 }

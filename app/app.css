@@ -10,10 +10,6 @@ body {
   overflow-y: scroll;
 }
 
-.MuiStack-root {
-  width: calc(100vw - 175px);
-}
-
 #title {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/public/assets/rainier.jpg');
   background-size: cover;
@@ -111,6 +107,12 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-span:has(+ code) {
-  padding: 0;
+.MuiAlert-root {
+  width: fit-content;
+}
+
+@media (min-width: 1200px) {
+  .MuiAccordion-root, .MuiAccordion-root.Mui-expanded {
+    margin-left: 3rem;
+  }
 }
