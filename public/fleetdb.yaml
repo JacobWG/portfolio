@@ -20,16 +20,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/vehicle"
-              example:
-                id: 1
-                year: 2024
-                make: 'Freightliner'
-                model: 'Cascadia'
-                currentData:
-                  currentOdometer: 568.4
-                startData:
-                  startDate: 'January 1, 2025'
-                  startOdometer: 25.0
     post:
       summary: Add or update vehicle
       description: Add a new vehicle or change details of an existing one.
@@ -49,24 +39,31 @@ components:
       properties:
         id:
           type: integer
+          example: 1
         year:
           type: integer
+          example: 2024
         make:
           type: string
+          example: 'Freightliner'
         model:
           type: string
+          example: 'Cascadia'
         currentData:
           type: object
           properties:
             currentOdometer:
               type: number
+              example: 568.4
         startData:
           type: object
           properties:
             startDate:
               type: string
+              example: 'January 25, 2025'
             startOdometer:
               type: number
+              example: 25.0
   parameters:
     vehicleId:
       name: id
