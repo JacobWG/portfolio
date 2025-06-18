@@ -51,8 +51,15 @@ let defTheme = createTheme({
         },
         h3: {
             fontSize: "1.5rem",
-            lineHeight: 1.334,
-            letterSpacing: "0em"
+            lineHeight: 1.75,
+            letterSpacing: "0em",
+            fontWeight: 700
+        },
+        h4: {
+            fontSize: "1.25rem",
+            lineHeight: 1.6,
+            letterSpacing: "0.0075em",
+            fontWeight: 700
         }
     }
 });
