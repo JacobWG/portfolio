@@ -112,7 +112,7 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .MuiAccordion-root, .MuiAccordion-root.Mui-expanded {
+  div.MuiAccordion-root, div.MuiAccordion-root.Mui-expanded {
     margin-left: 3rem;
   }
 }
