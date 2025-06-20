@@ -88,9 +88,13 @@ export function Layout() {
   return (
     <html lang="en">
       <head>
-        <title>Jacob Gilbert's Portfolio</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Jacob Gilbert's Portfolio</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta property="og:title" content="Jacob Gilbert's Portfolio" />
+          <meta property="og:description" content="A collection of projects and writing samples created by Jacob Gilbert." />
+          <meta property="og:url" content="https://jacobwg.net" />
+          <meta property="og:image" content="/assets/headshot.png" />
         <Meta />
         <Links />
       </head>
