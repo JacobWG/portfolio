@@ -24,7 +24,7 @@ export const SamplesRoutes = [
         text: "A procedure for configuring user access in AWS."
     },
     {
-        title: "Diagnostics & Malfunctions",
+        title: "DiagMal",
         path: "/samples/diagmal",
         topic: "Concept/Troubleshooting",
         text: "An explanation of ELD diagnostics and malfunctions, including possible causes and resolutions."
