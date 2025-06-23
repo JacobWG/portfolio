@@ -1,5 +1,11 @@
 export const SamplesRoutes = [
     {
+        title: "Swagger Spec",
+        path: "/samples/openapi",
+        topic: "API",
+        text: "A mockup of OpenAPI (Swagger) specifications using YAML input."
+    },
+    {
         title: "Gendata",
         path: "/samples/gendata",
         topic: "Concept",
@@ -23,4 +29,10 @@ export const SamplesRoutes = [
         topic: "Concept/Troubleshooting",
         text: "An explanation of ELD diagnostics and malfunctions, including possible causes and resolutions."
     },
+    {
+        title: "Device Health",
+        path: "/samples/device_health",
+        topic: "Reference",
+        text: "A manual detailing the functions of the various Device Health reports in Zonar's Ground Traffic Control."
+    }
 ];

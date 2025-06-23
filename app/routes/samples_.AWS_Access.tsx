@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import type { TooltipProps } from '@mui/material/Tooltip';
+import Divider from '@mui/material/Divider';
 
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -24,6 +25,7 @@ export default function AWSAccess() {
     return (
         <Box className='article sample aws_access'>
             <Typography>Task: How do I create an AWS Identity and Access Management (IAM) group with read and write access to a specific Amazon S3 bucket?</Typography>
+            <Divider />
             <Typography variant='h1' id="h.1xcqbx8z8nc0">Introduction</Typography>
             <Typography>When users are created in your account, by default they have no permissions to read or access anything in the account. You need to provide users permissions, either by assigning them directly to the user, or by placing the user into a user group with a pre-determined permission policy. Assigning the user to a group has several benefits, the largest one being the ability to edit a team&rsquo;s permissions without needing to edit the users individually.</Typography>
             <Typography>This guide describes the basic process for creating a user group with read and write access to one or more specific S3 buckets in your account. Users who need to see those buckets can then be added to the group at any time for immediate access.</Typography>
@@ -59,17 +61,17 @@ export default function AWSAccess() {
                         <Typography component={'span'}><sup>[1]</sup></Typography>
                     </HtmlTooltip>
                 </ListItem>
-                <ListItem>Select User groups&nbsp;in the drawer on the left hand side to open the User groups&nbsp;page.</ListItem>
+                <ListItem>Select User groups in the drawer on the left hand side to open the User groups page.</ListItem>
                 <List>
-                    <ListItem>If the drawer is not visible, click the hamburger icon to expand it.<br /><img alt="" src="/assets/image4.png" title="" /></ListItem>
+                    <ListItem>If the drawer is not visible, click the hamburger icon to expand it.<br /><Box component={"img"} alt="" src="/assets/aws_access/image4.png" title="" /></ListItem>
                 </List>
-                <ListItem>Click Create Group&nbsp;in the upper right.<br /><img alt="" src="/assets/image5.png" title="" /></ListItem>
+                <ListItem>Click Create Group in the upper right.<br /><Box component={"img"} alt="" src="/assets/aws_access/image5.png" title="" /></ListItem>
             </List>
             <Typography variant='h3' id="h.sabevgivlqxa">Name the group</Typography>
             <List component="ol" start={4}>
                 <ListItem>Enter the group name. Choose a meaningful name so you can see at a glance what the group is used for.</ListItem>
                 <List>
-                    <ListItem>Use only alphanumeric and +=,.@-_&nbsp;characters. Spaces may not be used.</ListItem>
+                    <ListItem>Use only alphanumeric and +=,.@-_ characters. Spaces may not be used.</ListItem>
                 </List>
             </List>
             <Typography variant='h3' id="h.aq9570oxs8j1">Add users to the group</Typography>
@@ -78,16 +80,16 @@ export default function AWSAccess() {
                 <List>
                     <ListItem>This step is optional. You can always add existing users to the group later or add users to the group when you create them.</ListItem>
                 </List>
-                <ListItem>Skip the Attach permissions policies&nbsp;step. You will create a custom permission policy later.</ListItem>
-                <ListItem>Click Create user group&nbsp;in the bottom right.</ListItem>
-                <ListItem>The console should return you to the list of user groups along with a success message.<br /><img alt="" src="/assets/image1.png" title="" /></ListItem>
+                <ListItem>Skip the Attach permissions policies step. You will create a custom permission policy later.</ListItem>
+                <ListItem>Click Create user group in the bottom right.</ListItem>
+                <ListItem>The console should return you to the list of user groups along with a success message.<br /><Box component={"img"} alt="" src="/assets/aws_access/image1.png" title="" /></ListItem>
             </List>
             <Typography variant='h2' id="h.rhqf1qx52mu9">Specify Permissions</Typography>
             <List component="ol" start={1}>
                 <ListItem>From the list of user groups, click the group name to open the details.</ListItem>
                 <ListItem>Click Permissions.</ListItem>
-                <ListItem>Click Add permissions, then select Create inline policy.<br /><img alt="" src="/assets/image6.png" title="" /></ListItem>
-                <ListItem>The Specify Permissions&nbsp;page opens with several sections to fill out as detailed below.</ListItem>
+                <ListItem>Click Add permissions, then select Create inline policy.<br /><Box component={"img"} alt="" src="/assets/aws_access/image6.png" title="" /></ListItem>
+                <ListItem>The Specify Permissions page opens with several sections to fill out as detailed below.</ListItem>
             </List>
             <Typography variant='h3' id="h.vfyqutiudkpr">Policy editor</Typography>
             <List component="ol" start={5}>
@@ -104,7 +106,7 @@ export default function AWSAccess() {
             </List>
             <Typography variant='h3' id="h.dw30hwf4dv0f">Select a service</Typography>
             <List component="ol" start={6}>
-                <ListItem>In the Service dropdown, select S3. The option should be located near the top in Commonly used services. You can also type &ldquo;S3&rdquo; into the text box to filter the service list.<br /><img alt="" src="/assets/image7.png" title="" /></ListItem>
+                <ListItem>In the Service dropdown, select S3. The option should be located near the top in Commonly used services. You can also type &ldquo;S3&rdquo; into the text box to filter the service list.<br /><Box component={"img"} alt="" src="/assets/aws_access/image7.png" title="" /></ListItem>
                 <ListItem>Once selected, further sections specific to S3 are shown.</ListItem>
             </List>
             <Typography variant='h3' id="h.4l2v431xwpkh">Actions allowed</Typography>
@@ -124,7 +126,7 @@ export default function AWSAccess() {
                         <ListItem>This allows the user group to add objects to the target bucket.</ListItem>
                     </List>
                 </List>
-                <ListItem>Skip Permissions management&nbsp;and Tagging. These actions are not covered in this guide.</ListItem>
+                <ListItem>Skip Permissions management and Tagging. These actions are not covered in this guide.</ListItem>
             </List>
             <Typography variant='h3' id="h.1wyy6lw4e376">Resources</Typography>
             <Typography>This section identifies the buckets and/or objects allowed by this policy.</Typography>
@@ -138,25 +140,25 @@ export default function AWSAccess() {
                 <ListItem>object - Since we want to allow the user group to read or write any and all objects, but only within the specified bucket, we also need to add the bucket ARN here. Click Add ARNs.</ListItem>
                 <List component="ol" start={1}>
                     <ListItem>In Visual mode, enter the name of the bucket in Resource bucket name.</ListItem>
-                    <ListItem>Click Any object name. The console automatically adds /*&nbsp;after the Resource ARN to signify all objects within the bucket.</ListItem>
+                    <ListItem>Click Any object name. The console automatically adds /* after the Resource ARN to signify all objects within the bucket.</ListItem>
                     <ListItem>Click Add ARNs.</ListItem>
                 </List>
-                <ListItem>Your Resources section should look like this:<br /><img alt="" src="/assets/image3.png" title="" /></ListItem>
+                <ListItem>Your Resources section should look like this:<br /><Box component={"img"} alt="" src="/assets/aws_access/image3.png" title="" /></ListItem>
             </List>
             <Typography variant='h3' id="h.auvnw2l622hw">Request conditions</Typography>
             <List component="ol" start={13}>
                 <ListItem>If you want to restrict access unless certain conditions are met, you can include these conditions here. For example, if you choose User is MFA Authenticated, a user without multi-factor authentication enabled is not permitted to access the bucket, even if they are included in the user group.</ListItem>
             </List>
-            <Typography>&nbsp;</Typography>
+            <Typography> </Typography>
             <List component="ol" start={14}>
-                <ListItem>Once all settings are selected, click Next&nbsp;in the bottom right corner to proceed to the Review and create&nbsp;screen.</ListItem>
+                <ListItem>Once all settings are selected, click Next in the bottom right corner to proceed to the Review and create screen.</ListItem>
             </List>
             <Typography variant='h2' id="h.xz724x1x9oxv">Review and create</Typography>
             <Typography variant='h3' id="h.tql2w0ndni6w">Policy details</Typography>
             <List component="ol" start={15}>
                 <ListItem>Enter the policy name. Choose a meaningful name so you can see at a glance what the policy is used for.</ListItem>
                 <List>
-                    <ListItem>Use only alphanumeric and +=,.@-_&nbsp;characters. Spaces may not be used.</ListItem>
+                    <ListItem>Use only alphanumeric and +=,.@-_ characters. Spaces may not be used.</ListItem>
                 </List>
             </List>
             <Typography variant='h3' id="h.x06kfz1ybiao">Permissions defined in this policy</Typography>
@@ -165,7 +167,7 @@ export default function AWSAccess() {
             </List>
             <List component="ol" start={17}>
                 <ListItem>Click Create Policy.</ListItem>
-                <ListItem>The console should return you to the user group details screen along with a success message.<br /><img alt="" src="/assets/image2.png" title="" /></ListItem>
+                <ListItem>The console should return you to the user group details screen along with a success message.<br /><Box component={"img"} alt="" src="/assets/aws_access/image2.png" title="" /></ListItem>
             </List>
             <Typography>Users in this group should now be able to see the bucket as well as read or add any object in that bucket.</Typography>
             <Typography>You&rsquo;re done! You can extend the actions in this guide to other aspects of managing your users in IAM:</Typography>
@@ -173,7 +175,7 @@ export default function AWSAccess() {
                 <ListItem>You can add additional permissions other than the ones listed in this guide if necessary, or remove the ones listed here.</ListItem>
                 <ListItem>You can add extra policies to the user group providing different permissions for a different set of buckets, or even for Amazon services other than S3.</ListItem>
                 <ListItem>You can create different user groups which have access to different buckets, and potentially different permissions for the same buckets, such as managers and team leads who need additional access.</ListItem>
-                <ListItem>You can add users to this or any other relevant user group as you create them (select the Add user to group&nbsp;option when creating a user, then select the groups you want them to belong to).</ListItem>
+                <ListItem>You can add users to this or any other relevant user group as you create them (select the Add user to group option when creating a user, then select the groups you want them to belong to).</ListItem>
             </List>
         </Box>
     )

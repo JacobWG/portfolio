@@ -37,6 +37,15 @@ body {
 
 .article img {
   box-shadow: 5px 5px 5px black;
+  margin: 1rem 2rem;
+  max-width: 1024px;
+}
+
+.article img.icon {
+  box-shadow: none;
+  margin: 0;
+  vertical-align: -1px;
+  display: inline;
 }
 
 .article h2 {

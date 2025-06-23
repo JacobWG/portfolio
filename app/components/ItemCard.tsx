@@ -9,7 +9,8 @@ export default function ItemCard({ key, children }: { key: number, children: Rea
                   margin: '1rem',
                   display: 'flex',
                   width: { xs: '100%', md: '45%', lg: '30%', xl: '23%' },
-                  minWidth: '340px',
+                  minWidth: '25rem',
+                  minHeight: '15rem',
                   flex: 'initial',
                   flexFlow: 'column',
                   justifyContent: 'space-between'

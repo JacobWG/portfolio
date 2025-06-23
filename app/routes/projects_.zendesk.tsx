@@ -47,7 +47,7 @@ export default function Zendesk() {
             <Typography>
                 Within category and section pages, articles and sections are clearly marked with
                 descriptive icons, providing a more intuitive browsing experience.
-                <img src='/assets/zendesk01.png' alt='An image of links to sections and articles, showing a drill-down icon for sections and a page for articles.' />
+                <img src='/assets/zendesk/zendesk01.png' alt='An image of links to sections and articles, showing a drill-down icon for sections and a page for articles.' />
             </Typography>
             <Typography variant={'h3'}>Internationalization</Typography>
             <Typography>

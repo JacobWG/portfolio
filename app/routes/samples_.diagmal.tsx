@@ -6,12 +6,14 @@ import ListItem from "@mui/material/ListItem";
 import Accordion from '../components/Accordion';
 import Alert from '@mui/material/Alert';
 import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
 
 export default function DiagMal() {
     return (
         <Box className='article samples diagmal'>
-            <Button variant="contained" href={'https://support.zonarsystems.net/hc/en-us/articles/360031023691-Diagnostics-Malfunctions'} target={'_blank'} sx={{mb:2, ml: 2}}>Link to Live Article</Button>
+            <Button variant="contained" href={'https://support.zonarsystems.net/hc/en-us/articles/360031023691-Diagnostics-Malfunctions'} target={'_blank'} sx={{mb:2}}>Link to Live Article</Button>
             <Typography variant='h1'>Diagnostics &amp; Malfunctions</Typography>
+            <Divider />
             <Box id="section-intro">
                 <Typography>From time to time, technical challenges with the ELD system or the asset itself could result in data discrepancies that make the driver non-compliant. Common reasons are temporary loss of connection to the telematics, a GPS connection failure, missing data from the vehicle, and so on. These occurrences are usually temporary and quickly fix themselves with no action needed from the driver or Zonar. Notifications that these temporary issues are occurring are referred to as <strong>diagnostics</strong>.</Typography>
                 <Typography>If the failure is more than temporary, and is due to an issue with the asset that caused a data diagnostic in the first place, the diagnostic escalates into a <strong>malfunction</strong> after a certain period of time. At this point all drivers of the vehicle with the malfunctioning ELD are alerted with a visual indicator and are advised to start recording their hours on a paper log to be in compliance with ELD.</Typography>

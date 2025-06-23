@@ -23,7 +23,7 @@ export default function Gendata() {
             <Typography variant="h2" id="01H7TKCZV6TJEZBRGDPS5ST48K">Gendata Structure</Typography>
             <Typography>Gendata (short for Generic Data) is a data type produced and transmitted by Zonar GPS units. The type is called generic because it can be used to send any kind of data, as opposed to types like GPS points which have a very specific structure. As new Zonar services and hardware are developed, gendata can be expanded to transfer new kinds of data and provide visibility into current status and troubleshooting.</Typography>
             <Typography>As gendata is a specific data type, each packet is visible in the GPS Log in Admin Console:</Typography>
-            <Typography><img src="/assets/Gendata_360021301952.jpeg" alt="2019-02-14_14-36-54.jpg" /></Typography>
+            <Box component={"img"} src="/assets/gendata/Gendata_360021301952.jpeg" alt="2019-02-14_14-36-54.jpg" />
             <Typography>It is possible to click the info link to examine a single gendata packet. For more detailed investigation, the <Link href="https://support.zonarsystems.net/hc/en-us/articles/360020914652">Gendata Extractor</Link> tool exists to search and display the contents of gendata packets more easily.</Typography>
             <Typography>Each gendata packet contains a label identifying what sort of data it is as well as an arbitrary number of data fields. The fields can be cross-referenced against documentation to determine what data is represented.</Typography>
             <Typography>All gendata packets have a number of data fields, or strings, the precise number of which depends on the specific label. The first several data strings typically contain metadata about the packet, for example:</Typography>
@@ -54,9 +54,9 @@ export default function Gendata() {
             <Typography variant="h2" id="01H7TKCZV77KYCC9FVKAX7TCKP">Gendata Interpretation Example</Typography>
             <Typography>This section will be an in-depth comparison of a common gendata packet against the relevant section in the reference page, providing an example of how to use the references to identify and interpret the incoming data.</Typography>
             <Typography>The following gendata report will be used:</Typography>
-            <Typography><img src="/assets/Gendata_360021301912.jpeg" alt="2019-02-14_14-26-32_1.jpg" /></Typography>
-            <Typography><img src="/assets/Gendata_360021240171.jpeg" alt="2019-02-14_14-26-32_2.jpg" /></Typography>
-            <Typography><img src="/assets/Gendata_360021301932.jpeg" alt="2019-02-14_14-26-32_3.jpg" /></Typography>
+            <Box component={"img"} src="/assets/gendata/Gendata_360021301912.jpeg" alt="2019-02-14_14-26-32_1.jpg" />
+            <Box component={"img"} src="/assets/gendata/Gendata_360021240171.jpeg" alt="2019-02-14_14-26-32_2.jpg" />
+            <Box component={"img"} src="/assets/gendata/Gendata_360021301932.jpeg" alt="2019-02-14_14-26-32_3.jpg" />
             <Typography className="note">This information is taken from the <Link href="https://support.zonarsystems.net/hc/en-us/articles/360020914652">Gendata Extractor</Link> tool; see the help file to learn more.</Typography>
             <Typography variant="h3" id="01H7TKCZV70Z55N6FH6D6GV3RZ">Label</Typography>
             <Typography>As shown, the label is GDT 59999. This label can be found in the GPS Gendata reference page, being the <Link href="https://zonarsystems.atlassian.net/wiki/spaces/Specs/pages/128580878578/GenData+Labels#GenDataLabels-2.3GPSPhoneHome" target="_blank" rel="noopener">GPS Phone Home</Link> gendata packet.</Typography>

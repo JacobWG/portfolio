@@ -22,7 +22,7 @@ export default function Bitmask() {
             <Typography>Bitmask parameters use binary to toggle several options and settings for a specific subsystem. The binary is then translated to decimal, which is the value of the parameter. Encoding the toggles in this method permits a wide array of settings in a compact value.</Typography>
             <Typography className="note">If you are unfamiliar with binary counting, you can visit the <Link href="https://en.wikipedia.org/wiki/Binary_number#Counting_in_binary" target="_blank" rel="noopener">Wikipedia page</Link> for an overview, however it is not strictly necessary to be able to use bitmasks.</Typography>
             <Typography variant="h2">Bitmask in Parameters</Typography>
-            <Typography><img src="/assets/BitmaskExplained_Bitmask_11_7sm.jpeg" alt="Bitmask_11_7sm.jpg" /></Typography>
+            <Box component={"img"} src="/assets/bitmask/BitmaskExplained_Bitmask_11_7sm.jpeg" alt="Bitmask_11_7sm.jpg" />
             <Typography>When viewing a parameter with the Bitmask type, the numbers in the rightmost cell do not refer to value. Instead, they signify the bit which toggles that particular setting on.</Typography>
             <Typography>Bits start on the right side of a binary number and move to the left. The first bit is 0,<strong>not</strong> 1.</Typography>
             <List>
@@ -37,7 +37,7 @@ export default function Bitmask() {
             <Typography>Therefore, the actual value we want to send to the GPS unit to enable those specific settings is<strong>7</strong>.</Typography>
             <Typography variant="h2">Encoding/Decoding Bitmasks Using Windows Calculator</Typography>
             <Typography>As mentioned above, it is not strictly necessary to understand binary numbers to handle bitmasks. The Windows calculator has a function that will assist.</Typography>
-            <Typography><img src="/assets/BitmaskExplained_Bitmask_Calc_11_7.jpeg" alt="Bitmask_Calc_11_7.jpg" /></Typography>
+            <Box component={"img"} src="/assets/bitmask/BitmaskExplained_Bitmask_Calc_11_7.jpeg" alt="Bitmask_Calc_11_7.jpg" />
             <Typography>Open the calculator, then click on View &gt; Programmer to expand the calculator.</Typography>
             <Typography>Ensure the Decimal radio button is selected. This controls the format in which the number is displayed in the window.</Typography>
             <Typography>Notice the rows of 0 in groups of 4. These represent the bits in the bitmask that we will either set to ON or OFF using a value of 1 or 0.</Typography>
@@ -49,7 +49,7 @@ export default function Bitmask() {
             <Typography>You can also plug in the reverse - type in a value of 7 using the number pad, and the bit numbers will populate 1s to indicate the binary bits that will be set to ON.</Typography>
             <Typography variant="h3"><strong>Windows 10</strong></Typography>
             <Typography>The Windows 10 calculator offers a similar function but looks slightly different.</Typography>
-            <Typography><img src="/assets/BitmaskExplained_Win10Calc.png" alt="Win10Calc.PNG" /></Typography>
+            <Box component={"img"} src="/assets/bitmask/BitmaskExplained_Win10Calc.png" alt="Win10Calc.PNG" />
             <Typography>If you wish to click each bit to toggle on or off, be sure the icon second from the left is selected, as shown above.</Typography>
             <Typography>If you wish to enter the decimal value to retrieve the bits, click the icon furthest to the left first, type in the decimal number, then click the icon second from the left to see the bits.</Typography>
             <Typography variant="h2">Bitmask Definition</Typography>

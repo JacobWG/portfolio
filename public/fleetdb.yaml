@@ -1,26 +1,77 @@
 openapi: 3.1.0
 info:
   title: Fleet Database
-  description: API endpoints for Fleet Database Management
+  description: Mock API endpoints for Fleet Database Management
   version: 1.0.0
 servers:
-  - url: 'https://www.jacobwg.net'
+- url: 'https://www.jacobwg.net'
+tags:
+- name: drivers
+  description: Details about fleet drivers.
+- name: vehicles
+  description: Details about fleet vehicles.
 paths:
-  /vehicle:
+  /drivers:
     get:
-      summary: Get vehicle
-      description: Get details of an individual vehicle.
+      tags:
+        - drivers
+      summary: Get drivers
+      description: Get details of drivers matching the provided parameters.
       parameters:
-        - $ref: "#/components/parameters/vehicleId"
-        - $ref: "#/components/parameters/vehicleYear"
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/driverName'
+        - $ref: '#/components/parameters/status'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/vehicle"
+                $ref: '#/components/schemas/driver'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/driver'
     post:
+      tags:
+        - drivers
+      summary: Add a driver
+      description: Add a driver or change the details of an existing one.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/driver'
+      responses:
+        "201":
+          description: Created
+  /vehicles:
+    get:
+      tags:
+        - vehicles
+      summary: Get vehicles
+      description: Get details of vehicles matching the provided parameters.
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/vehicleYear'
+        - $ref: '#/components/parameters/vehicleMake'
+        - $ref: '#/components/parameters/vehicleModel'
+        - $ref: '#/components/parameters/status'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vehicle'
+            application/xml:
+              schema: 
+                $ref: '#/components/schemas/vehicle'
+        "404":
+          description: No vehicle with the specified information was found.
+    post:
+      tags:
+        - vehicles
       summary: Add or update vehicle
       description: Add a new vehicle or change details of an existing one.
       requestBody:
@@ -40,6 +91,13 @@ components:
         id:
           type: integer
           example: 1
+        status:
+          type: string
+          enum: [active, inactive]
+          example: 'active'
+        asset:
+          type: string
+          example: '2583-C'
         year:
           type: integer
           example: 2024
@@ -49,34 +107,108 @@ components:
         model:
           type: string
           example: 'Cascadia'
+        license:
+          type: object
+          properties:
+            plateNumber:
+              type: string
+              example: 'AZM9590'
+            expiration:
+              type: string
+              format: date
+              example: '03/2026'
+            state:
+              type: string
+              format: postal
+              example: 'WA'
         currentData:
           type: object
           properties:
             currentOdometer:
               type: number
+              format: float
               example: 568.4
         startData:
           type: object
           properties:
             startDate:
               type: string
-              example: 'January 25, 2025'
+              example: '01/25/2025'
             startOdometer:
               type: number
-              example: 25.0
+              format: float
+              example: 25.2
+    driver:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        status:
+          type: string
+          enum: [ active, inactive ]
+          example: 'active'
+        name:
+          type: string
+          example: 'John Sample'
+        license:
+          type: object
+          properties:
+            licenseNumber:
+              type: string
+              example: 'WDLABCD486DG'
+            issued:
+              type: string
+              format: date
+              example: '01/11/2020'
+            expiration:
+              type: string
+              format: date
+              example: '08/12/2025'
+            state:
+              type: string
+              format: postal
+              example: 'WA'
   parameters:
-    vehicleId:
+    id:
       name: id
       in: query
+      description: The database ID.
       schema:
         type: integer
         format: int32
         minimum: 1
+    status:
+      name: status
+      in: query
+      description: The status.
+      schema:
+        type: string
+        enum: [ active, inactive ]
     vehicleYear:
       name: year
       in: query
+      description: The vehicle year in 4-digit format.
       schema:
         type: integer
         format: int32
         minimum: 1900
         pattern: '\d{4}'
+    vehicleMake:
+      name: make
+      in: query
+      description: The vehicle make.
+      schema:
+        type: string
+    vehicleModel:
+      name: model
+      in: query
+      description: The vehicle model.
+      schema:
+        type: string
+    driverName:
+      name: name
+      in: query
+      description: The driver name.
+      schema:
+        type: string
