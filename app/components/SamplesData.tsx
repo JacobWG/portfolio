@@ -34,5 +34,11 @@ export const SamplesRoutes = [
         path: "/samples/device_health",
         topic: "Reference",
         text: "A manual detailing the functions of the various Device Health reports in Zonar's Ground Traffic Control."
+    },
+    {
+        title: "Datastream Catalog",
+        path: "/samples/datastream",
+        topic: "Concept",
+        text: "A primer on cloud datastreaming for executives and fleet managers unfamiliar with the concept. Incomplete as the project's sponsor halted it."
     }
 ];
