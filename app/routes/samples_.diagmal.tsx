@@ -76,7 +76,7 @@ export default function DiagMal() {
                     <Typography>This malfunction is nearly always caused by a failure of the GPS module in the telematics unit. This can be verified by checking the GPS light on the telematics unit (V3s and V4s will display solid green if working). If necessary, replace the telematics unit and verify that the Duty Status screen is reporting Location.</Typography>
             </Accordion>
             <Accordion id="section-data-recording" title={'Data Recording Compliance'}>
-                    <Typography>ELD is expected to record and retain data and not lose any data that will make the driver logs inaccurate and incorrect.</Typography>
+                    <Typography>ELD is expected to record and retain data, the loss of which will cause the driver logs to be incorrect.</Typography>
                     <Typography variant='h3'>Diagnostic</Typography>
                     <Typography>Data Recording does not create a diagnostic.</Typography>
                     <Typography variant='h3'>Malfunction</Typography>
