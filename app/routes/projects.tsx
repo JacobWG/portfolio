@@ -30,7 +30,7 @@ export default function Projects() {
                             <Typography sx={{paddingTop: "1rem"}}>{item.text}</Typography>
                         </CardContent>
                         <CardActions>
-                            <Button component={Link} to={item.path}>View Summary</Button>
+                            <Button component={Link} to={item.path}>View Details</Button>
                         </CardActions>
                     </ItemCard>
                 ))}
