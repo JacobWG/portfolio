@@ -15,7 +15,7 @@ export default function ResponsiveSidebar() {
         <div>
             <Toolbar sx={{ml:2}}>Jacob Gilbert</Toolbar>
             <Divider />
-            <List className={"sidebarlist"} sx={{pl: 2, pt:0, mt: '1rem'}}>
+            <List className={"sidebarList"} sx={{pl: 2, pt:0, mt: '1rem'}}>
                 {SidebarRoutes.map((item, index) => (
                     <ListItem key={index} className={item.cName} disablePadding>
                         <ListItemButton component={Link} to={item.path}>
@@ -28,7 +28,7 @@ export default function ResponsiveSidebar() {
                 ))}
             </List>
             <Divider sx={{marginBottom: '2rem', marginTop: '1rem'}} />
-            <List className={"sidebarlist"} sx={{pl: 2}}>
+            <List className={"sidebarList"} sx={{pl: 2}}>
                 {SidebarExternalLinks.map((item, index) => (
                     <ListItem key={index} className={item.cName} disablePadding>
                         <ListItemButton component={Link} to={item.path} target="_blank">

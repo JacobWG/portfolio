@@ -2,6 +2,7 @@ import * as React from 'react';
 import database from "~/components/fleetDB.json";
 import FleetTable from "~/components/FleetTable";
 import FleetHistory from "~/components/FleetHistory";
+import FleetFilter from  "~/components/FleetFilter";
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -76,8 +77,9 @@ export default function FleetStatus() {
                 </Dialog>
             </Box>
             <Box mt={2}>
+                <FleetFilter />
                 <FleetHistory />
-                <FleetTable/>
+                <FleetTable />
             </Box>
         </Box>
     )
