@@ -25,6 +25,10 @@ export default function FleetFilter() {
             vehicleMakes.push(vehicle.make);
         }
     });
+    driverNames.sort();
+    vehicleNames.sort();
+    vehicleFleets.sort();
+    vehicleMakes.sort();
     return (
         <Box mb={2} sx={{display: 'flex', gap: '1rem'}}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -33,22 +37,22 @@ export default function FleetFilter() {
             </LocalizationProvider>
             <Autocomplete
                 options={driverNames}
-                sx={{width: 200}}
+                sx={{width: 225}}
                 renderInput={(params) => <TextField {...params} label="Driver" />}
             />
             <Autocomplete
                 options={vehicleNames}
-                sx={{width: 200}}
+                sx={{width: 100}}
                 renderInput={(params) => <TextField {...params} label="Vehicle" />}
             />
             <Autocomplete
                 options={vehicleMakes}
-                sx={{width: 200}}
+                sx={{width: 150}}
                 renderInput={(params) => <TextField {...params} label="Make" />}
             />
             <Autocomplete
                 options={vehicleFleets}
-                sx={{width: 200}}
+                sx={{width: 100}}
                 renderInput={(params) => <TextField {...params} label="Fleet" />}
             />
         </Box>

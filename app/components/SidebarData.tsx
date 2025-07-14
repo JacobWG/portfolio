@@ -31,7 +31,7 @@ export const SidebarRoutes = [
 export const SidebarExternalLinks = [
     {
         title: "Resume",
-        path: "https://docs.google.com/document/d/1IFNZhp3LLeMqzpSWzHQPz3I3JLmUYja6QJceGMEqmww/edit?usp=sharing",
+        path: "https://docs.google.com/document/d/15btwchOu0J6P5cz4pj2fBocXnUQ00SW6Mbp1uEFYmkw/edit?usp=sharing",
         icon: <ContactPageIcon />,
         cName: "nav-text top-link",
     },
