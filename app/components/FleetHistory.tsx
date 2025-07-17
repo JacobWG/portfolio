@@ -1,22 +1,19 @@
 import * as React from 'react';
 import Box from "@mui/material/Box";
 import {BarChart} from "@mui/x-charts/BarChart";
-import database from "~/components/fleetDB.json";
 
-const { vehicleList } = database;
-
-function getTrips() {
+function getTrips(dataset:any) {
     let allTrips:any[] = [];
-    for (let index = 0; index < vehicleList.length; index++) {
-        vehicleList[index].trips.forEach((item) => {
+    for (let index = 0; index < dataset.length; index++) {
+        dataset[index].trips.forEach((item:any) => {
             allTrips = [...allTrips, item];
         })
     }
     return allTrips;
 }
 
-function dateAggregator() {
-    let trips:any[] = getTrips();
+function dateAggregator(dataset:any) {
+    let trips:any[] = getTrips(dataset);
     let dates:any[] = [];
     for (let index = 0; index < trips.length; index++) {
         let dateTime = trips[index].startTime.split("T");
@@ -33,8 +30,8 @@ function dateAggregator() {
     }, {});
 }
 
-export default function FleetHistory() {
-    let uDates = dateAggregator();
+export default function FleetHistory({dataset}) {
+    let uDates = dateAggregator(dataset);
     let dates:string[] = Array.from(Object.keys(uDates));
     let counts:number[] = Array.from(Object.values(uDates));
     return (

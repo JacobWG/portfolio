@@ -19,6 +19,11 @@ export const { driverList, vehicleList } = database;
 
 export default function FleetStatus() {
     const [open, setOpen] = React.useState(false);
+    const [filteredData, setFilteredData] = React.useState([]);
+
+    function getFilteredData(data:any) {
+        setFilteredData(data);
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -77,9 +82,9 @@ export default function FleetStatus() {
                 </Dialog>
             </Box>
             <Box mt={2}>
-                <FleetFilter />
-                <FleetHistory />
-                <FleetTable />
+                <FleetFilter sendDataUp={getFilteredData} />
+                <FleetHistory dataset={filteredData} />
+                <FleetTable dataset={filteredData} />
             </Box>
         </Box>
     )

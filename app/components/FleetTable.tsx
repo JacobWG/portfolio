@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from "@mui/material/Box";
 import { DataGrid } from '@mui/x-data-grid';
 import { type GridColDef } from '@mui/x-data-grid';
-import { vehicleList, driverList } from "~/routes/projects_.fleet_status";
+import { driverList } from "~/routes/projects_.fleet_status";
 
 const columns: GridColDef[] = [
     {field: 'vehicleName', headerName: 'Vehicle Name', flex: 0.5},
@@ -13,19 +13,19 @@ const columns: GridColDef[] = [
     {field: 'distance', headerName: 'Distance (Mi)', flex: 0.5},
 ];
 
-function DataSort() {
+function DataSort(dataset:any) {
     let rows: any[] = [];
     let rowId: number = 1;
-    for (let i = 0; i < vehicleList.length; i++) {
-        for (let j = 0; j < vehicleList[i].trips.length; j++) {
+    for (let i = 0; i < dataset.length; i++) {
+        for (let j = 0; j < dataset[i].trips.length; j++) {
             let row = {
                 id: rowId,
-                vehicleName: vehicleList[i].assetId,
+                vehicleName: dataset[i].assetId,
                 driver: driverList[i].firstName +  ' ' + driverList[i].lastName,
-                fleet: vehicleList[i].fleet,
-                tripStart: vehicleList[i].trips[j].startTime,
-                tripEnd: vehicleList[i].trips[j].endTime,
-                distance: vehicleList[i].trips[j].miles,
+                fleet: dataset[i].fleet,
+                tripStart: dataset[i].trips[j].startTime,
+                tripEnd: dataset[i].trips[j].endTime,
+                distance: dataset[i].trips[j].miles,
             }
             rows = [...rows, row];
             rowId++;
@@ -34,8 +34,8 @@ function DataSort() {
     return rows;
 }
 
-export default function FleetTable() {
-    let rows = DataSort();
+export default function FleetTable({dataset}:any) {
+    let rows = DataSort(dataset);
     return (
         <Box sx={{height: '500px'}}>
             <DataGrid
