@@ -19,7 +19,7 @@ export const { driverList, vehicleList } = database;
 
 export default function FleetStatus() {
     const [open, setOpen] = React.useState(false);
-    const [filteredData, setFilteredData] = React.useState([]);
+    const [filteredData, setFilteredData] = React.useState<[]>([]);
 
     function getFilteredData(data:any) {
         setFilteredData(data);
@@ -69,7 +69,7 @@ export default function FleetStatus() {
                         <Divider />
                         <Typography variant={"h4"} mt={2}>Planned future updates</Typography>
                         <List>
-                            <ListItem>Filters to view data by date range, vehicle, driver, etc.</ListItem>
+                            <ListItem>Adjustments to how the data is displayed and arrangement of elements.</ListItem>
                             <ListItem>Pie chart showing mileage share per fleet segment</ListItem>
                             <ListItem>Streaming data for real-time updates (still mock data)</ListItem>
                         </List>
