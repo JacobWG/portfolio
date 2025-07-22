@@ -1,9 +1,9 @@
 import * as React from "react";
 import Card from '@mui/material/Card';
 
-export default function ItemCard({ key, children }: { key: number, children: React.ReactNode }) {
+export default function ItemCard({ index, children }: { index: number, children: React.ReactNode }) {
     return (
-        <Card key={key}
+        <Card key={index}
               elevation={2}
               sx={{
                   margin: '1rem',

@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useEffect} from "react";
 import dayjs from "dayjs";
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
@@ -53,11 +54,11 @@ interface filterProps {
 }
 
 export default function FleetFilter({sendDataUp}) {
-    const today = dayjs();
-    const defaultLastWeek = dayjs().subtract(7, 'days');
+    const start = dayjs("May 1, 2025");
+    const end = dayjs("July 15, 2025");
     const defaultFilters:filterProps = {
-        startDate: defaultLastWeek.toString(),
-        endDate: today.toString(),
+        startDate: start.toString(),
+        endDate: end.toString(),
         vehicle: null,
         driver: null,
         make: null,
@@ -85,51 +86,56 @@ export default function FleetFilter({sendDataUp}) {
     vehicleFleets.sort();
     vehicleMakes.sort();
 
-    function handleClick() {
-        console.log(filters);
+    function runFilters() {
         const data = applyFilters(filters);
         sendDataUp(data);
     }
+
+    useEffect(() => {
+        runFilters();
+    }, []);
 
     return (
         <Box mb={2} sx={{display: 'flex', gap: '1rem'}}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
-                    defaultValue={defaultLastWeek}
+                    defaultValue={start}
                     label={"Start Date"}
                     onChange={(newDate: any) => setFilters({...filters, startDate: newDate.toString()})}
+                    sx={{width: '15%'}}
                 />
                 <DatePicker
-                    defaultValue={today}
+                    defaultValue={end}
                     label={"End Date"}
                     onChange={(newDate: any) => setFilters({...filters, endDate: newDate.toString()})}
+                    sx={{width: '15%'}}
                 />
             </LocalizationProvider>
             <Autocomplete
                 options={driverNames}
-                sx={{width: 225}}
+                sx={{width: '18%'}}
                 onChange={(e, value) => setFilters({...filters, driver: value})}
                 renderInput={(params) => <TextField {...params} label="Driver" />}
             />
             <Autocomplete
                 options={vehicleNames}
-                sx={{width: 100}}
+                sx={{width: '15%'}}
                 onChange={(e, value) => setFilters({...filters, vehicle: value})}
                 renderInput={(params) => <TextField {...params} label="Vehicle" />}
             />
             <Autocomplete
                 options={vehicleMakes}
-                sx={{width: 150}}
+                sx={{width: '15%'}}
                 onChange={(e, value) => setFilters({...filters, make: value})}
                 renderInput={(params) => <TextField {...params} label="Make" />}
             />
             <Autocomplete
                 options={vehicleFleets}
-                sx={{width: 100}}
+                sx={{width: '12%'}}
                 onChange={(e, value) => setFilters({...filters, fleet: value})}
                 renderInput={(params) => <TextField {...params} label="Fleet" />}
             />
-            <Button variant={'contained'} onClick={handleClick}>Apply</Button>
+            <Button variant={'contained'} onClick={runFilters} sx={{width: "auto"}}>Apply</Button>
         </Box>
     )
 }

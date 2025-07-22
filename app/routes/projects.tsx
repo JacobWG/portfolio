@@ -20,7 +20,7 @@ export default function Projects() {
             </Typography>
             <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
                 {ProjectsRoutes.map((item, index) => (
-                    <ItemCard key={index}>
+                    <ItemCard index={index}>
                         <CardContent>
                             <Box sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', paddingBottom: '0.5rem'}}>
                                 <Typography variant="h5">{item.title}</Typography>

@@ -14,26 +14,25 @@ function getTrips(dataset:any) {
 
 function dateAggregator(dataset:any) {
     let trips:any[] = getTrips(dataset);
-    let dates:any[] = [];
-    for (let index = 0; index < trips.length; index++) {
-        let dateTime = trips[index].startTime.split("T");
-        dates = [...dates, dateTime[0]];
+    let dateMileage:Map<string, number> =  new Map();
+    for (let index:number = 0; index < trips.length; index++) {
+        let dateTime:{} = trips[index].startTime.split('T');
+        let date:string = dateTime[0];
+        if (dateMileage.has(date)) {
+            let newMiles:number = dateMileage.get(date) + trips[index].miles;
+            dateMileage.set(date, newMiles);
+        } else {
+            dateMileage.set(date, trips[index].miles);
+        }
     }
-    let uniqueDates:any[] = [];
-    uniqueDates = dates.reduce(function(count, date) {
-        count[date] = (count[date] || 0) + 1;
-        return count;
-    }, {});
-    return Object.keys(uniqueDates).sort().reduce((obj, key) => {
-        obj[key] = uniqueDates[key];
-        return obj;
-    }, {});
+    console.log(dateMileage);
+    return dateMileage;
 }
 
 export default function FleetHistory({dataset}) {
-    let uDates = dateAggregator(dataset);
-    let dates:string[] = Array.from(Object.keys(uDates));
-    let counts:number[] = Array.from(Object.values(uDates));
+    let uDates:Map<string, number> = dateAggregator(dataset);
+    let dates:string[] = Array.from(uDates.keys());
+    let miles:number[] = Array.from(uDates.values());
     return (
         <Box mb={2} sx={{border: '2px solid', borderColor: 'divider'}}>
             <BarChart
@@ -44,7 +43,13 @@ export default function FleetHistory({dataset}) {
                 ]}
                 series={[
                     {
-                        data: counts,
+                        data: miles,
+                        valueFormatter: (value: number|null) => {if (value == null) {return ''} return `${value.toFixed(2)} mi`},
+                    }
+                ]}
+                yAxis={[
+                    {
+                        label: "Total Miles",
                     }
                 ]}
                 height={500}

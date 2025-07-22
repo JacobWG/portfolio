@@ -10,7 +10,7 @@ const columns: GridColDef[] = [
     {field: 'fleet', headerName: 'Fleet', flex: 0.5},
     {field: 'tripStart', headerName: 'Trip Start', flex: 1},
     {field: 'tripEnd', headerName: 'Trip End', flex: 1},
-    {field: 'distance', headerName: 'Distance (Mi)', flex: 0.5},
+    {field: 'distance', headerName: 'Distance (Mi)', valueFormatter: (value: number) => {return `${value.toFixed(2)}`}, flex: 0.5},
 ];
 
 function DataSort(dataset:any) {
