@@ -25,8 +25,9 @@ function dateAggregator(dataset:any) {
             dateMileage.set(date, trips[index].miles);
         }
     }
-    console.log(dateMileage);
-    return dateMileage;
+    let sortedDates:Map<string, number> = new Map([...dateMileage].sort());
+    console.log(sortedDates);
+    return sortedDates;
 }
 
 export default function FleetHistory({dataset}) {
