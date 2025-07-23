@@ -1,8 +1,7 @@
 import * as React from "react";
 import {useEffect} from "react";
 import dayjs from "dayjs";
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import isBetween from 'dayjs/plugin/isBetween';
 import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import 'dayjs/locale/en.js'
@@ -12,8 +11,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-dayjs.extend(isSameOrAfter);
-dayjs.extend(isSameOrBefore);
+dayjs.extend(isBetween);
 
 function applyFilters(filters:filterProps) {
     let filteredData = structuredClone(vehicleList);
@@ -39,7 +37,7 @@ function applyFilters(filters:filterProps) {
         filteredData = filteredData.filter((vehicle) => vehicle.fleet == filters.fleet);
     }
     filteredData.forEach((vehicle) => {
-        vehicle.trips = vehicle.trips.filter((trip) => dayjs(trip.startTime).isSameOrAfter(dayjs(filters.startDate)) && dayjs(trip.endTime).isSameOrBefore(dayjs(filters.endDate)));
+        vehicle.trips = vehicle.trips.filter((trip) => dayjs(trip.startTime).isBetween(dayjs(filters.startDate), dayjs(filters.endDate), "day", "[]"));
     })
     return filteredData;
 }
@@ -54,8 +52,8 @@ interface filterProps {
 }
 
 export default function FleetFilter({sendDataUp}) {
-    const start = dayjs("May 1, 2025");
-    const end = dayjs("July 15, 2025");
+    const start = dayjs("2025-05-01");
+    const end = dayjs("2025-07-15");
     const defaultFilters:filterProps = {
         startDate: start.toString(),
         endDate: end.toString(),
