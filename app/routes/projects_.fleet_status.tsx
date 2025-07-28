@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import FleetPieChart from "~/components/FleetPieChart";
 
 export const { driverList, vehicleList } = database;
 
@@ -84,6 +85,7 @@ export default function FleetStatus() {
             <Box mt={2}>
                 <FleetFilter sendDataUp={getFilteredData} />
                 <FleetHistory dataset={filteredData} />
+                <FleetPieChart dataset={filteredData} />
                 <FleetTable dataset={filteredData} />
             </Box>
         </Box>
