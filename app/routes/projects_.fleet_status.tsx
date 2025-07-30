@@ -71,8 +71,8 @@ export default function FleetStatus() {
                         <Typography variant={"h4"} mt={2}>Planned future updates</Typography>
                         <List>
                             <ListItem>Adjustments to how the data is displayed and arrangement of elements.</ListItem>
-                            <ListItem>Pie chart showing mileage share per fleet segment</ListItem>
-                            <ListItem>Streaming data for real-time updates (still mock data)</ListItem>
+                            <ListItem>Reset button added to filter bar.</ListItem>
+                            <ListItem>Streaming data for real-time updates (still mock data).</ListItem>
                         </List>
                     </DialogContent>
                     <DialogActions>
