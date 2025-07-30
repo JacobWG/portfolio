@@ -19,7 +19,7 @@ export default function FleetPieChart({dataset}) {
     let fleetMileage:any[] = [];
     fleetAggregate(dataset).forEach((value, key) => fleetMileage.push({'value': value.toFixed(2), 'label': key}));
     return (
-        <Box mb={2} sx={{border: '2px solid', borderColor: 'divider'}}>
+        <Box mb={2} sx={{border: '2px solid', borderColor: 'divider', flexGrow: 1}}>
             <PieChart
                 series={[
                     {
@@ -28,7 +28,7 @@ export default function FleetPieChart({dataset}) {
                         ]
                     }
                 ]}
-                height={500}
+                height={400}
             />
         </Box>
     )

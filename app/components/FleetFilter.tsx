@@ -52,8 +52,8 @@ interface filterProps {
 }
 
 export default function FleetFilter({sendDataUp}) {
-    const start = dayjs("2025-05-01");
-    const end = dayjs("2025-07-15");
+    const start = dayjs("2025-06-08");
+    const end = dayjs("2025-06-14");
     const defaultFilters:filterProps = {
         startDate: start.toString(),
         endDate: end.toString(),

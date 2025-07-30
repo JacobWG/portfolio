@@ -33,7 +33,7 @@ export default function FleetHistory({dataset}) {
     let dates:string[] = Array.from(uDates.keys());
     let miles:number[] = Array.from(uDates.values());
     return (
-        <Box mb={2} sx={{border: '2px solid', borderColor: 'divider'}}>
+        <Box mb={2} sx={{border: '2px solid', borderColor: 'divider', flexGrow: 2}}>
             <BarChart
                 xAxis={[
                     {
@@ -51,7 +51,7 @@ export default function FleetHistory({dataset}) {
                         label: "Total Miles",
                     }
                 ]}
-                height={500}
+                height={400}
             />
         </Box>
     )
