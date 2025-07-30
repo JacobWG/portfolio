@@ -94,42 +94,42 @@ export default function FleetFilter({sendDataUp}) {
     }, []);
 
     return (
-        <Box mb={2} sx={{display: 'flex', gap: '1rem'}}>
+        <Box mb={2} sx={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                     defaultValue={start}
                     label={"Start Date"}
                     onChange={(newDate: any) => setFilters({...filters, startDate: newDate.toString()})}
-                    sx={{width: '15%'}}
+                    sx={{maxWidth: '12%', minWidth: '10rem', flexGrow: 1}}
                 />
                 <DatePicker
                     defaultValue={end}
                     label={"End Date"}
                     onChange={(newDate: any) => setFilters({...filters, endDate: newDate.toString()})}
-                    sx={{width: '15%'}}
+                    sx={{maxWidth: '12%', minWidth: '10rem', flexGrow: 1}}
                 />
             </LocalizationProvider>
             <Autocomplete
                 options={driverNames}
-                sx={{width: '18%'}}
+                sx={{maxWidth: '24%', minWidth: '15rem', flexGrow: 2}}
                 onChange={(e, value) => setFilters({...filters, driver: value})}
                 renderInput={(params) => <TextField {...params} label="Driver" />}
             />
             <Autocomplete
                 options={vehicleNames}
-                sx={{width: '15%'}}
+                sx={{maxWidth: '15%', minWidth: '10rem', flexGrow: 1}}
                 onChange={(e, value) => setFilters({...filters, vehicle: value})}
                 renderInput={(params) => <TextField {...params} label="Vehicle" />}
             />
             <Autocomplete
                 options={vehicleMakes}
-                sx={{width: '15%'}}
+                sx={{maxWidth: '15%', minWidth: '10rem', flexGrow: 1}}
                 onChange={(e, value) => setFilters({...filters, make: value})}
                 renderInput={(params) => <TextField {...params} label="Make" />}
             />
             <Autocomplete
                 options={vehicleFleets}
-                sx={{width: '12%'}}
+                sx={{maxWidth: '12%', minWidth: '5rem', flexGrow: 1}}
                 onChange={(e, value) => setFilters({...filters, fleet: value})}
                 renderInput={(params) => <TextField {...params} label="Fleet" />}
             />

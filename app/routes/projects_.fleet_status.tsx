@@ -84,7 +84,7 @@ export default function FleetStatus() {
             </Box>
             <Box mt={2}>
                 <FleetFilter sendDataUp={getFilteredData} />
-                <Box sx={{display: 'flex', gap: 2}}>
+                <Box sx={{display: 'flex', gap: 2, flexWrap: {xs: 'wrap', lg: 'nowrap'}}}>
                     <FleetHistory dataset={filteredData} />
                     <FleetPieChart dataset={filteredData} />
                 </Box>

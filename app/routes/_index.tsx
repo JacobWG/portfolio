@@ -36,11 +36,6 @@ export default function Index() {
                     </ListItem>
                     <ListItem><strong>Development</strong>: HTML, CSS, Javascript, jQuery, React.js, Python</ListItem>
                 </List>
-                <Typography>
-                    My skillset grows by the day, as I constantly seek to learn new things. "Learning quickly" is a valuable
-                    skill for any tech writer, as we need to learn an app or procedure in order to intelligently write
-                    about it for our audience.
-                </Typography>
                 <Typography>Visit the Projects link in the left sidebar for a description of various projects
                 I've completed over the years. The Samples link leads to direct writing samples.</Typography>
                 <Typography variant={"h3"} sx={{pt: 2}}>About this site</Typography>
