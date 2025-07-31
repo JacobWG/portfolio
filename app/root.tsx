@@ -154,7 +154,7 @@ export function Layout() {
                       <ResponsiveSidebar />
                   </Drawer>
               </Box>
-              <Box id={'mainbody'} sx={{width: {xs: '100%', sm: `calc(100% - ${drawerWidth}px)`}}}>
+              <Box role={'main'} id={'mainbody'} sx={{width: {xs: '100%', sm: `calc(100% - ${drawerWidth}px)`}}}>
                   <Toolbar/>
                   <Paper elevation={0}>
                       <Outlet />

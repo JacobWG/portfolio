@@ -38,7 +38,7 @@ export default function Index() {
                 </List>
                 <Typography>Visit the Projects link in the left sidebar for a description of various projects
                 I've completed over the years. The Samples link leads to direct writing samples.</Typography>
-                <Typography variant={"h3"} sx={{pt: 2}}>About this site</Typography>
+                <Typography variant={"h3"} component={"h2"} sx={{pt: 2}}>About this site</Typography>
                 <Typography sx={{pt: 2}}>
                     This portfolio site is:
                 </Typography>

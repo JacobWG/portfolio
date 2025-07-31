@@ -25,7 +25,7 @@ export default function BCToolbar() {
     const location =  useLocation();
     const pathNames = location.pathname.split("/").filter((x) => x);
     return (
-        <Breadcrumbs sx={{textTransform: 'capitalize'}}>
+        <Breadcrumbs sx={{textTransform: 'capitalize'}} id={'breadcrumbs'}>
             <LinkRouter underline="hover" color="inherit" to="/">
                 Home
             </LinkRouter>
