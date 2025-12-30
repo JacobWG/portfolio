@@ -34,7 +34,7 @@ export default function Gendata() {
             </List>
             <Typography>The exact number of data strings and the data they contain are specified in reference pages kept on Confluence.</Typography>
             <Typography variant="h2" id="01H7TKCZV6DWA0AEG395R8442W">Reference Pages</Typography>
-            <Typography>Reference pages are available on Confluencewhere they can be accessed and updated by Engineering as needed. These pages provide detailed data on each gendata label.</Typography>
+            <Typography>Reference pages are available on Confluence where they can be accessed and updated by Engineering as needed. These pages provide detailed data on each gendata label.</Typography>
             <Typography><Link href="https://zonarsystems.atlassian.net/wiki/spaces/Specs/pages/128580878578/GenData+Labels" target="_blank" rel="noopener">GPS Gendata</Link> -This page stores information on gendata relating to the GPS unit itself:</Typography>
             <List>
                 <ListItem>Phone home data</ListItem>
